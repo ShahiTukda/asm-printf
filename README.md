@@ -1,10 +1,13 @@
 # asm-printf
 
+
 A minimal printf implementation written in pure x86-64 assembly.
 Parses format strings and handles escape sequences directly at the
 syscall level, no C standard library involved.
 
+
 ## What this is
+
 
 A follow-up to my [asm-calculator](https://github.com/ShahiTukda/asm-calculator) project. Wanted to see if I
 could implement something closer to a real libc function instead of
@@ -14,33 +17,51 @@ directly via the write syscall.
 
 Reuses atoi and itoa from the calculator project for %d formatting.
 
+
 ## Supported format specifiers
 
+
 %d      prints an integer argument
+
 %s      prints a string argument
+
 %%      prints a literal percent sign
+
 
 ## Supported escape sequences
 
+
 \n      newline
+
 \xHH    arbitrary byte via 2-digit hex (e.g. \x41 prints 'A')
+
 \\      prints a literal backslash sign
+
 
 ## Build
 
-make
+
+makefile(https://github.com/ShahiTukda/asm-printf/blob/main/Makefile)
+
 
 ## Usage
 
+
 ./printf "format string" arg1 arg2 ...
+
 
 Examples:
 
+
 ./printf "value is %d\n" 42
+
 ./printf "hello %s\n" world
+
 ./printf "escaped: \x48\x69\n"
 
+
 ## How it works
+
 
 The program walks the format string one byte at a time. On hitting
 a `%` or `\`, it looks ahead one character to decide what to do —
@@ -50,7 +71,9 @@ an escape sequence. Integer arguments are pulled from the stack
 pair. Everything else is written directly via raw write syscalls,
 one byte or one chunk at a time.
 
+
 ## Notes
+
 
 Written to push past the calculator project — handling variable
 arguments and format parsing in raw assembly instead of just fixed
