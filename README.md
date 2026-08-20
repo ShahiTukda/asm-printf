@@ -41,7 +41,7 @@ Reuses atoi and itoa from the calculator project for %d formatting.
 ## Build
 
 
-makefile(https://github.com/ShahiTukda/asm-printf/blob/main/Makefile)
+[makefile](https://github.com/ShahiTukda/asm-printf/blob/main/Makefile)
 
 
 ## Usage
