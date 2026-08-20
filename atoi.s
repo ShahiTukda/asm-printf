@@ -1,3 +1,6 @@
+.intel_syntax noprefix
+.global atoi
+atoi:
 mov rcx, 0
 mov rax, 0
 push rbx
